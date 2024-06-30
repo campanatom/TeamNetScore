@@ -1,0 +1,31 @@
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="it.unibo.teamnetscore.model.Utente" table="Utente" abstract="true">
+        <id name="username" column="username">
+            <generator class="assigned"/>
+        </id>
+        <property name="nome" column="nome"/>
+        <property name="cognome" column="cognome"/>
+        <property name="ruolo" column="ruolo"/>
+        <property name="password" column="password"/>        
+        <joined-subclass name="it.unibo.teamnetscore.model.Allenatore">
+        	 <key column="username"/>
+            <one-to-one name="squadra" class="it.unibo.teamnetscore.model.Squadra" property-ref="allenatore"/>
+        </joined-subclass>
+         <joined-subclass name="it.unibo.teamnetscore.model.Calciatore">
+           <key column="username"/>
+            <set name="squadre" table="Calciatore_Squadra">
+            <key column="calciatore_username"/>
+            <many-to-many column="squadra_id" class="it.unibo.teamnetscore.model.Squadra"/>
+        </set>
+        
+        <!--MAPPING CON PRESENZA -->
+        <set name="presenze" inverse="true" cascade="all">
+            <key column="calciatore_id"/>
+            <one-to-many class="com.example.Presenza"/>
+        </set>
+
+        </joined-subclass>
+    </class>
+</hibernate-mapping>

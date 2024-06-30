@@ -1,2 +1,4 @@
-# TeamNetScore
-Piccolo progetto a sfondo calcistico per l'esame di Ingegneria del Software T all'Università di Bologna.
+
+Il progetto TeamNetScore è un prototipo, che possiede solo alcune funzionalità di base. Il progetto propone lo sviluppo di un'applicazione web dinamica e scalabile per la gestione di squadre di calcio. Il software, in particolare, sarà utilizzato da due categorie di utenti: allenatori e calciatori.
+L'idea è quella di fornire ad ogni allenatore la possibilità di gestire la propria squadra, consentendo tramite un opportuno sistema di autenticazione di aggiungere i vari membri del gruppo. L'allenatore potrà comunicare eventi quali allenamenti, convocazioni, partite, cene di squadra e molto altro. In aggiunta sarà possibile inserire dati e statistiche visualizzabili tramite grafici e tabelle.
+L'implementazione del database è solo una bozza, e pertanto non è ancora utilizzabile: inoltre, essa rappresenta al momento solo una piccola parte del dominio dell'applicazione.

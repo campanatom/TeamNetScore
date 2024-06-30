@@ -1,0 +1,24 @@
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="it.unibo.teamnetscore.model.Squadra" table="Squadra">
+        <id name="id" column="id">
+            <generator class="increment"/>
+        </id>
+        <property name="nomeSquadra" column="nomeSquadra"/>
+        <property name="scudetto" column="scudetto"/>
+        <property name="descrizione" column="descrizione"/>
+        <property name="categoria" column="categoria"/>
+        <one-to-one name="allenatore" class="it.unibo.teamnetscore.model.Allenatore" constrained="true"/>
+        <set name="calciatori" table="Calciatore_Squadra" inverse="true">
+            <key column="squadra_id"/>
+            <many-to-many column="calciatore_username" class="it.unibo.teamnetscore.model.Calciatore"/>
+        </set>
+        
+        <set name="eventi" inverse="true" cascade="all">
+            <key column="squadra_id"/>
+            <one-to-many class="it.unibo.teamnetscore.model.EventoGenerale"/>
+        </set>
+           
+    </class>
+</hibernate-mapping>
