@@ -51,56 +51,58 @@ public class CalendarioCalciatore extends HttpServlet {
             jsonBuilder.append("[");
 
             for (int i = 0; i < eventi.size(); i++) {
-            	
-            	EventoGenerale ev = eventi.get(i);       	
-               
-	                jsonBuilder.append("{")
-	                    .append("\"title\":\"").append(ev.getDescrizione()).append("\"")
-	                    .append(",\"id\":\"").append(ev.getId()).append("\"");
-	                    
-	                if (eventi.get(i) instanceof EventoComunicazioneGenerale)
-	                	jsonBuilder.append(",\"start\":\"").append(ev.getDatainserimento().toString()).append("\"");
-	                   
-	                else if (eventi.get(i) instanceof Evento) {	
-	                	Evento evento = (Evento) eventi.get(i);  
-	                    
-	                    jsonBuilder.append(",\"start\":\"").append(evento.getData().toString()).append("T")
-	                    .append(evento.getOrario().toString()).append("\",");
-	                
-	               
-		                switch(evento.getTipoEvento()) {
-		                
-		                case ALLENAMENTO:
-		                	jsonBuilder.append("\"color\":\"").append("blue").append("\",");
-		                case CENA_DI_SQUADRA:
-		                	jsonBuilder.append("\"color\":\"").append("green").append("\",");
-		                case PARTITA: 
-		                	jsonBuilder.append("\"color\":\"").append("red").append("\",");
-		                }
-		                  
-		                    
-		                 jsonBuilder
-		                 	.append("\"description\":\"").append(evento.getDescrizione()).append("\",")
-		                 	.append("\"extendedProps\": {")
-		                 	.append("\"place\":\"").append(evento.getLuogo()).append("\"")
-		                    .append("}");
-		               }
-		                
-		                jsonBuilder.append("}");
-		                
-		                if (i < eventi.size() - 1) {
-		                    jsonBuilder.append(",");
-		                }
-            }
+             	
+                EventoGenerale ev = eventi.get(i);       	
+                       
+           	                jsonBuilder.append("{")
+           	                    .append("\"description\":\"").append(ev.getDescrizione()).append("\"")
+           	                    .append(",\"id\":\"").append(ev.getId()).append("\"");
+           	                    
+           	                if (eventi.get(i) instanceof EventoComunicazioneGenerale) {
+           	                	jsonBuilder.append(",\"type\":\"").append("COMUNICAZIONE").append("\"");
+           						jsonBuilder.append(",\"date\":\"").append(ev.getDatainserimento().toLocalDate().toString()).append("\"");	
+           	                  }
+           	                else if (eventi.get(i) instanceof Evento) {	
+           	                	Evento evento = (Evento) eventi.get(i);  
+           	                    
+           	                    jsonBuilder.append(",\"date\":\"").append(evento.getData().toString()).append("\",");
 
-            jsonBuilder.append("]");
-            
-            //System.out.println(jsonBuilder.toString());
-            
-            request.setAttribute("eventi", jsonBuilder.toString());
+           						jsonBuilder.append("\"time\":\"").append(evento.getOrario().toString()).append("\",");
+           	                
+           	               
+           		                switch(evento.getTipoEvento()) {
+           		                
+           		                case ALLENAMENTO:
+           		                	jsonBuilder.append("\"type\":\"").append("ALLENAMENTO").append("\",");
+           		                	break;
+           		                case CENA_DI_SQUADRA:
+           		                	jsonBuilder.append("\"type\":\"").append("CENA DI SQUADRA").append("\",");
+           		                	break;
+           		                case PARTITA: 
+           		                	jsonBuilder.append("\"type\":\"").append("PARTITA").append("\",");
+           		                	break;
+           		                }
+           		                  
+           		                    
+           		                 jsonBuilder
+           		                 	.append("\"place\":\"").append(evento.getLuogo()).append("\"");
+           		               }
+           		                
+           		                jsonBuilder.append("}");
+           		                
+           		                if (i < eventi.size() - 1) {
+           		                    jsonBuilder.append(",");
+           		                }
+                    }
+
+                    jsonBuilder.append("]");
+                    
+                    //System.out.println(jsonBuilder.toString());
+                    
+                    request.setAttribute("eventi", jsonBuilder.toString());
         }
         
-        request.getRequestDispatcher("eventicalciatore.jsp").forward(request, response);
+        request.getRequestDispatcher("calendariocalciatore.jsp").forward(request, response);
     
     }
 }

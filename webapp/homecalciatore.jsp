@@ -20,7 +20,7 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="eventicalciatore.jsp">Calendario Eventi</a></li>
+                    <li><a href="calendariocalciatore.jsp">Calendario Eventi</a></li>
                     <li><a href="#squadra">Squadra</a></li>
                     <li><a href="#statistiche">Statistiche</a></li>
                     <li><a href="#richieste">Richieste</a>

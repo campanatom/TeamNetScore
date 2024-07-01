@@ -48,14 +48,16 @@
         
         <h2>Dettagli Evento</h2>
             <div class="event-details">
-                <p><strong>Titolo:</strong> <%=eventoselezionato.getDescrizione() %></p>
-                <p><strong>ID:</strong> <%=eventoselezionato.getId() %></p>
+            	<p><strong>ID:</strong> <%=eventoselezionato.getId() %></p>
+                <p><strong>Descrizione:</strong> <%=eventoselezionato.getDescrizione() %></p>
+                
         
     			<% if (eventoselezionato instanceof Evento) {
     				Evento e = (Evento) eventoselezionato; %>
-        			<p><strong>Ora:</strong> <%=e.getData().toString() %> </p>
+        			<p><strong>Ora:</strong> <%=e.getOrario().toString() %> </p>
                		<p><strong>Luogo:</strong> <%=e.getLuogo() %> </p>
-                	<p><strong>Tipologia:</strong> <%=e.getOrario().toString() %> </p>
+                	<p><strong>Data:</strong> <%=e.getData().toString() %> </p>
+                	<p><strong>Tipologia:</strong> <%=e.getTipoEvento().toString() %> </p>
                 	<br> <h3>Presenze (non implementato)</h3>
                 <ul>
                     <li>Calciatore 1</li>
@@ -65,7 +67,7 @@
         			
    				<% }
     			else { %>
-    			<p><strong>Data Inserimento:</strong> <%=eventoselezionato.getDatainserimento().toString() %> </p>
+    			<p><strong>Timestamp inserimento:</strong> <%=eventoselezionato.getDatainserimento().toString() %> </p>
    				<%} %>
             </div>
         </main>

@@ -41,6 +41,15 @@
         <url-pattern>/eventicalciatore</url-pattern>
     </servlet-mapping>
 	
+	<servlet>
+        <servlet-name>AggiungiEvento</servlet-name>
+        <servlet-class>it.unibo.teamnetscore.view.AggiungiEvento</servlet-class>
+       
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AggiungiEvento</servlet-name>
+        <url-pattern>/aggiungievento</url-pattern>
+    </servlet-mapping>
 	
 	<welcome-file-list>
 		<welcome-file>login.html</welcome-file>

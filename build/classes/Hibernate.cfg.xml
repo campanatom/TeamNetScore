@@ -5,8 +5,8 @@
         <!-- JDBC Database connection settings -->
         <property name="connection.driver_class">com.ibm.db2.jcc.DB2Driver</property>
 		<property name="connection.url">jdbc:db2://diva.deis.unibo.it:50000/tw_stud</property>
-        <property name="hibernate.connection.username">s0000975014</property>
-        <property name="hibernate.connection.password">Teamnetscore07</property>
+        <property name="hibernate.connection.username">*****</property>
+        <property name="hibernate.connection.password">*****</property>
 
         <!-- JDBC connection pool settings -->
         <property name="hibernate.c3p0.min_size">5</property>

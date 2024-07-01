@@ -87,6 +87,13 @@ public class Login extends HttpServlet {
 		c4.setUsername("fratotti");
 		c4.setRuolo(Ruolo.CALCIATORE);
 		
+		Allenatore a3 = new Allenatore();
+		a3.setNome("Luciano");;
+		a3.setCognome("Spalletti");
+		a3.setPassword("pistacchio");
+		a3.setUsername("spalletti");
+		a3.setRuolo(Ruolo.ALLENATORE);
+		
 		List<Calciatore> list1 = new ArrayList<Calciatore>();
 		list1.add(c1);
 		list1.add(c2);
@@ -104,7 +111,7 @@ public class Login extends HttpServlet {
         		+ " sono più che una squadra: sono una famiglia, sono la famiglia del MEZZANA CALCIO.", a2, list2, Categoria.CALCIO_A_UNDICI);
    
         // Creazione degli eventi
-        EventoGenerale eventoGen1 = new EventoComunicazioneGenerale("E1", LocalDateTime.now(), "Allenamento pre-campionato", squadra1);
+        EventoGenerale eventoGen1 = new EventoComunicazioneGenerale("E1", LocalDateTime.now(), "Allenamento cancellato!", squadra1);
         EventoGenerale eventoGen2 = new EventoComunicazioneGenerale("E2", LocalDateTime.now(), "Riunione strategica", squadra2);
 
         // Creazione di eventi specifici
@@ -134,6 +141,7 @@ public class Login extends HttpServlet {
 		utentiRegistrati.put(c2.getUsername(), c2);
 		utentiRegistrati.put(c3.getUsername(), c3);
 		utentiRegistrati.put(c4.getUsername(), c4);
+		utentiRegistrati.put(a3.getUsername(), a3);
 		
 		//settaggio dell'attributo utentiregistrati della servlet
 		this.getServletContext().setAttribute("utentiRegistrati", utentiRegistrati);
@@ -171,6 +179,7 @@ public class Login extends HttpServlet {
 				  
 					 Allenatore a = (Allenatore) u;
 					 session.setAttribute("utente", a);
+					 
 				  RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/homeallenatore.jsp");
 				  rd.forward(req, res);
 				  return;

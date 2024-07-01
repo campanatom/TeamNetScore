@@ -1,0 +1,158 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #EDE7F6;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 95%;
+    margin: 0 auto;
+}
+
+header {
+    background-color: rgb(138, 113, 202);
+    padding: 30px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo h1 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-left: 20px;
+    font-size: 3.5em;
+}
+
+.logo img {
+    height: 100px; 
+    margin-right: 10px;
+}
+
+nav {
+    margin-left: auto;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: black;
+    text-decoration: none;
+    font-size: 1.1em;
+    padding: 20px 35px;
+    background-color: #D1C4E9;
+    border-radius: 8px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Stili per il contenitore del calendario */
+.calendar-container {
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-header button.arrow-button {
+    background-color: #6A0DAD;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 18px;
+}
+
+.calendar-header button.arrow-button:hover {
+    background-color: #5A0A9D;
+}
+
+.calendar-week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.calendar-day {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    text-align: center;
+}
+
+.calendar-day header {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.calendar-day .date-number {
+    font-size: 24px;
+    color: #5A0A9D;
+}
+
+.event {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.event-title {
+    font-weight: bold;
+    margin: 0;
+}
+
+.event-time {
+    margin: 5px 0;
+}
+
+.event-button {
+    background-color: #5A0A9D;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.event-button:hover {
+    background-color: #6A0DAD;
+}
+
+
+
+.event-button.present {
+    background-color: #4CAF50; /* Verde per presenza */
+}
